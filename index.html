@@ -1,11 +1,84 @@
-<html>
-<body>
-<h1>Basic Webpage Test</h1>
-<p>This is only a <b>test page</b>.</p>
-<p>Please check the bottom checkbox if you agree or disagree</p>
-<input type="checkbox" /><p> Agree</p>
+<!DOCTYPE html>
 
-<img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.giphy.com%2Fmedia%2FYfPhlO1q8chUc%2Fgiphy.gif&f=1&nofb=1&ipt=5278ca7aaf2dab0cf76f8dedf6bd092b7a8ca8d1a2111ed2c32ac3e437f805f5" alt="Happy Homer" />
+<html lang="en">
 
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+       name="viewport"
+       content="width=device-width, initial-scale=1.0" />
+
+    <title>Audio Mix Lab</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+
+  <body>
+    <h1>Note Calender</h1>
+
+    <table border="1" cellpadding="15" cellspacing="2">
+        <tr>
+            <th>Sun</th>
+            <th>Mon</th>
+            <th>Tue</th>
+            <th>Wed</th>
+            <th>Thur</th>
+            <th>Fri</th>
+            <th>Sat</th>
+        </tr>
+
+        <tr>
+            <td>
+                <strong>1</strong><br>
+                <textarea rows="4" cols="15"></textarea>
+            </td>                
+            <td>
+                <strong>2</strong><br>
+                <textarea rows="4" cols="15"></textarea>
+            </td>
+            <td>
+                <strong>3</strong><br>
+                <textarea rows="4" cols="15"></textarea>
+            </td>
+            <td>
+                <strong>4</strong><br>
+                <textarea rows="4" cols="15"></textarea>
+            </td>            
+            <td>
+                <strong>5</strong><br>
+                <textarea rows="4" cols="15"></textarea>
+            </td>
+            <td>
+                <strong>6</strong><br>
+                <textarea rows="4" cols="15"></textarea>
+            </td>
+            <td>
+                <strong>7</strong><br>
+                <textarea rows="4" cols="15"></textarea>
+            </td>                                          
+        </tr>
+
+        <tr>
+            <td>
+                <textarea rows="1" cols="15"></textarea>
+            </td>
+        </tr>
+    </table>
+
+    <script>
+        // Loop through all days (example: 1 to 6)
+        for (let i = 1; i <= 6; i++) {
+            const box = document.getElementById(`day${i});
+            if (!box) continue;
+
+            // Restore saved notes
+            box.value = localStorage.getItem(`day${i}`) || '';
+
+            // Save notes when typing
+            box.addEventListener('input', () => {
+                localStorage.setItem(`day${i}`, box.value);
+            });            
+        }
+    </script>
+
+  </body>
 </html>
